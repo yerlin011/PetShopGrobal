@@ -1,0 +1,42 @@
+.cover-container {
+  .idea-cover {
+    background-size: cover;
+    max-height: 15rem;
+    width: fit-content;
+  }
+}
+
+.metadata {
+  --font-size: 1rem;
+  font-size: var(--font-size);
+  color: var(--ion-color-medium-shade) !important;
+  user-select: none;
+
+  &__row {
+    justify-content: center;
+  }
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ion-icon {
+      margin: auto 0.5em;
+    }
+
+    ion-button {
+      --ion-color-light: transparent;
+      --box-shadow: none;
+      --padding-start: 0;
+      --padding-end: 0;
+      --border-radius: 5em;
+      --ion-color-contrast: var(--ion-color-medium-shade) !important;
+    }
+
+    span {
+      display: inline-flex;
+      margin-left: 0.2em;
+      font-size: calc(var(--font-size) - 15%);
+    }
+  }
+}

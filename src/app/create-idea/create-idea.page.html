@@ -1,0 +1,65 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-text>
+      <h2>Crear nuevo</h2>
+    </ion-text>
+   <!-- <ion-button color="light" slot="end" shape="round" (click)="form.valid && onSubmit()"
+      [disabled]="!form.valid || loading">
+      <ng-container *ngIf="!loading; else ShowLoading">
+        <ion-icon slot="start" name="add-sharp"></ion-icon>
+        Create
+      </ng-container>
+      <ng-template #ShowLoading>
+        <ion-icon name="refresh-sharp"></ion-icon>
+        Loading...
+      </ng-template>
+    </ion-button>
+     -->
+  </ion-toolbar>
+ 
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <!--<form [formGroup]="form" class="form">
+    <label class="title">
+      <ion-item>
+        <ion-label slot="end" color="dark" [style.color]="titleLength > 25 ? 'red' : 'rgb(165, 164, 164)'">{{
+          titleLength }} / 25
+        </ion-label>
+        <ion-input formControlName="title" placeholder="Title"></ion-input>
+      </ion-item>
+    </label>
+    <label class="description">
+      <span class="description-length" [style.color]="descriptionLength > 999 ? 'red' : 'rgb(165, 164, 164)'">
+        {{ descriptionLength }} / 999
+      </span>
+      <ion-textarea autoGrow="true" formControlName="description" placeholder="Write something awesome...">
+      </ion-textarea>
+    </label>
+  </form>
+  -->
+  <form [formGroup]="form" #formProductos="ngForm" class="form" id="form-producto">
+    <label>Nombre</label>
+
+    <input type="text" name="nombre" class="form-control" required>
+
+    <label>Descripcion</label>
+    <textarea name="descripcion" class="form-control" required></textarea>
+
+    <label>Precio</label>
+
+    <input type="text"  name="precio" class="form-control" required pattern="[0-9]+">
+
+    
+    <label>Imagen</label>
+    <ion-input type="file" name="imagen" class="form-control"></ion-input>
+    <br/>
+
+    <input type="submit" value="Crear nuevo" class="btn btn-success">
+  </form>
+
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-card class="auth-form">
+  <ion-card-header>
+    <ion-card-title>Registro</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label position="floating">Correo electrónico</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="email.invalid && email.touched" lines="none">
+        <ion-text color="danger" class="form-error">
+          Por favor, introduce una dirección de correo electrónico válida.
+        </ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="password.invalid && password.touched" lines="none">
+        <ion-text color="danger" class="form-error">
+          Se requiere contraseña.
+        </ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Confirmar Contraseña</ion-label>
+        <ion-input type="password" formControlName="confirmPassword"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="form.hasError('notEqual') && confirmPassword.touched" lines="none">
+        <ion-text color="danger" class="form-error">
+          Las contraseñas no coinciden.
+        </ion-text>
+      </ion-item>
+
+      <ion-button type="submit" expand="block" [disabled]="loading || !form.valid">
+        {{ loading ? 'Loading...' : 'Registro'}}
+      </ion-button>
+    </form>
+
+    <ion-text class="extra-options">
+      ¿Ya tienes una cuenta?
+      <a [routerLink]="['/auth/login']">Iniciar sesión</a>
+    </ion-text>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,36 @@
+h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  height: 100%;
+
+  .title {
+    flex: none;
+    border-bottom: 1px solid rgb(165, 164, 164);
+    margin-bottom: 10px;
+
+    --ion-color-dark: rgb(165, 164, 164);
+  }
+
+  .description {
+    flex-grow: 1;
+
+    .description-length {
+      position: absolute;
+      right: 16px;
+      padding: 0.5em;
+      z-index: 10;
+    }
+
+    ion-textarea {
+      overflow: hidden;
+      z-index: 5;
+      padding-top: 1.3em;
+    }
+  }
+}

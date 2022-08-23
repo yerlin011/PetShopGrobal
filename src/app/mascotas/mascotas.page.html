@@ -1,0 +1,74 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-searchbar
+      class="ion-margin-top"
+      color="light"
+      placeholder="Buscar"
+      mode="ios"
+    >
+    </ion-searchbar>
+    <ion-button color="light" slot="end">
+      <ion-icon name="filter-sharp" class="ion-padding"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [fullscreen]="true">
+  
+
+        <h3>{{titulo}}</h3>
+        
+         <hr>
+
+         <div *ngIf="!productos">
+             <strong>Cargando...</strong>
+         </div>
+
+         <div *ngIf="productos">
+          <div class="row">
+            <div class="col-lg-3" *ngFor="let producto of productos" >
+              <div class="thumbnail">
+                <div *ngIf="producto.imagen" class="imagen_container">
+                  <img src="{{urlImagen}}/uploads/{{producto.imagen}}" class="producto_imagen" id="zoom">
+              </div>
+
+              <div *ngIf="!producto.imagen" class="">
+                <div class="imagen_relleno"></div>
+            </div>
+            <div class="caption">
+              <h3> {{producto.nombre}}</h3>
+              <p>RD{{producto.precio}}</p>
+            </div>
+
+            <div *ngIf="producto.id!=confirmado"> 
+        
+              <a  class="btn btn-md btn-primary">Ver</a>
+              <a (click)="mensajePermiso()" class="btn btn-md btn-warning">Editar</a>
+              <a (click)="mensajePermiso()" class="btn btn-md btn-danger">Borrar</a>
+
+              </div>
+           
+              <div  *ngIf="confirmado == producto.id">
+
+                  <a class="btn btn-md btn-danger" (click)="onDeleteProducto(producto.id)">
+                  Quiero eliminar</a>
+                  <a class="btn btn-md btn-warning"(click)="cancelarConfirm()">Cancelar</a>
+
+              </div>
+              </div>
+            </div>
+
+          </div>
+         </div>
+
+ 
+ 
+                
+ 
+                 
+
+  
+</ion-content>

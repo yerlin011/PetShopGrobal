@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-card class="auth-form">
+  <ion-card-header>
+    <ion-card-title>Iniciar sesión</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label position="floating">Correo electrónico</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-text class="extra-options">
+        <a [routerLink]="['/auth/forgot']">¿Olvidaste tu contraseña?</a>
+      </ion-text>
+
+      <ion-button type="submit" expand="block" [disabled]="!form.valid || loading">
+        {{ loading ? 'Loading...' : 'Iniciar sesión'}}
+      </ion-button>
+    </form>
+
+    <ion-text class="extra-options">
+      ¿Aún no tienes una cuenta?
+      <a [routerLink]="['/auth/register']">Crear cuenta</a>
+    </ion-text>
+  </ion-card-content>
+</ion-card>

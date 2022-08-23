@@ -1,0 +1,54 @@
+.idea-card {
+  display: grid;
+  grid-template-areas:
+    "t t t o"
+    "s s s o";
+  border-radius: 2em;
+  height: 8.5em;
+  margin: 0.7em 1.2em;
+  padding: 0.7em;
+  transition: all 0.2s;
+  --background-activated-opacity: 0.3;
+
+  .tags {
+    grid-area: t;
+    justify-self: start;
+
+    ion-badge {
+      margin: 2px;
+    }
+  }
+  .options {
+    grid-area: o;
+    justify-self: end;
+    align-self: center;
+    --ion-color-primary: transparent;
+    ion-button {
+      --padding-start: 0;
+      --padding-end: 0;
+    }
+  }
+  .summary {
+    grid-area: s;
+    align-self: end;
+  }
+
+  .title {
+    --ion-color-light: #fff;
+    font-weight: 900;
+    line-height: 1rem;
+    text-shadow: 0 0 0.2em #000;
+
+    user-select: none;
+  }
+
+  &:active {
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

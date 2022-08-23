@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ruslanbot-66a53": {
+      "hosting": {
+        "app": [
+          "ideas-rusgunx"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ruslanbot-66a53"
+  }
+}

@@ -1,0 +1,53 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title> Detalles idea </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ng-container *ngIf="idea$ | async as idea; else loading">
+      <div class="cover-container">
+        <img
+          class="idea-cover"
+          [alt]="idea.title + ' cover'"
+          [src]="idea.cover"
+        />
+        <ion-grid class="metadata">
+          <ion-row class="metadata__row">
+            <ion-col class="metadata__item">
+              <ion-button color="light">
+                <ion-icon name="chatbubble-outline"></ion-icon>
+              </ion-button>
+              <span>2</span>
+            </ion-col>
+            <ion-col class="metadata__item">
+              <ion-button color="light">
+                <ion-icon name="star-outline"></ion-icon>
+              </ion-button>
+              <span>125</span>
+            </ion-col>
+            <ion-col class="metadata__item">
+              <ion-button color="light">
+                <ion-icon name="share-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <ion-card-header>
+        <ion-card-subtitle>
+          Por <strong>Ruslan Gonzalez</strong> hace un día...
+        </ion-card-subtitle>
+        <ion-card-title>{{ idea.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content> {{ idea.description }} </ion-card-content>
+    </ng-container>
+    <ng-template #loading>
+      <ion-card-content> loading... </ion-card-content>
+    </ng-template>
+  </ion-card>
+</ion-content>
